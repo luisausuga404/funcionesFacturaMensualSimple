@@ -1,9 +1,9 @@
 console.log("Bienvenidos al sistema de facturación de energía.");
 
-let consumoGuardado = 0;
-let tarifaGuardada = 0;
-let cargoFijoGuardado = 0;
-let porcentajeIVAGuardado = 0;
+// let consumoGuardado = 0;
+// let tarifaGuardada = 0;
+// let cargoFijoGuardado = 0;
+// let porcentajeIVAGuardado = 0;
 
 // 5. Función flecha: calcular subtotal (consumo × tarifa)
 const calcularSubtotal = () => {
@@ -11,6 +11,14 @@ const calcularSubtotal = () => {
     const tarifa = obtenerTarifa();
     return consumo * tarifa;
 }
+
+// 6. Función flecha: calcular monto del IVA
+const calcularIVA = () => {
+    const subtotal = calcularSubtotal();
+    const porcentaje = obtenerPorcentajeIVA();
+    return (subtotal * porcentaje) / 100;
+}
+calcularIVA()
 
 
 
