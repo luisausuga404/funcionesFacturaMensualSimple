@@ -5,16 +5,16 @@ let tarifaGuardada = 0;
 let cargoFijoGuardado = 0;
 let porcentajeIVAGuardado = 0;
 
-// 2. Función declarativa: tarifa por kWh
-function obtenerTarifa() {
-    if (tarifaGuardada === 0) {
-        let valor = parseFloat(prompt("Ingresa la tarifa por kilovatio:"));
+// 3. Función de expresión: cargo fijo por servicio
+const obtenerCargoFijo = function () {
+    if (cargoFijoGuardado === 0) {
+        let valor = parseFloat(prompt("Ingrese el cargo fijo por servicio:"));
         while (isNaN(valor) || valor < 0) {
-            valor = parseFloat(prompt("Valor inválido. Ingresa la tarifa:"));
+            valor = parseFloat(prompt("Valor inválido. Ingresa el cargo fijo:"));
         }
-        tarifaGuardada = valor;
+        cargoFijoGuardado = valor;
     }
-    return tarifaGuardada;
-}
-obtenerTarifa()
+    return cargoFijoGuardado;
+}  
+obtenerCargoFijo()
 
