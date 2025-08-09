@@ -1,9 +1,63 @@
 console.log("Bienvenidos al sistema de facturación de energía.");
 
-// let consumoGuardado = 0;
-// let tarifaGuardada = 0;
-// let cargoFijoGuardado = 0;
-// let porcentajeIVAGuardado = 0;
+let consumoGuardado = 0;
+let tarifaGuardada = 0;
+let cargoFijoGuardado = 0;
+let porcentajeIVAGuardado = 0;
+
+// 1. Función declarativa: consumo mensual en kWh
+function obtenerConsumo() {
+    if (consumoGuardado === 0) {
+        let valor = parseFloat(prompt("Ingresa el consumo mensual en kilovatio:"));
+        while (isNaN(valor) || valor < 0) {
+            valor = parseFloat(prompt("Valor inválido. Ingresa el consumo en kilovatio:"));
+        }
+        consumoGuardado = valor;
+    }
+    return consumoGuardado;
+} 
+
+
+
+
+
+// 2. Función declarativa: tarifa por kWh
+function obtenerTarifa() {
+    if (tarifaGuardada === 0) {
+        let valor = parseFloat(prompt("Ingresa la tarifa por kilovatio:"));
+        while (isNaN(valor) || valor < 0) {
+            valor = parseFloat(prompt("Valor inválido. Ingresa la tarifa:"));
+        }
+        tarifaGuardada = valor;
+    }
+    return tarifaGuardada;
+}
+
+// 3. Función de expresión: cargo fijo por servicio
+const obtenerCargoFijo = function () {
+    if (cargoFijoGuardado === 0) {
+        let valor = parseFloat(prompt("Ingrese el cargo fijo por servicio:"));
+        while (isNaN(valor) || valor < 0) {
+            valor = parseFloat(prompt("Valor inválido. Ingresa el cargo fijo:"));
+        }
+        cargoFijoGuardado = valor;
+    }
+    return cargoFijoGuardado;
+}  
+
+
+// 4. Función de expresión: porcentaje de IVA
+const obtenerPorcentajeIVA = function () {
+    if (porcentajeIVAGuardado === 0) {
+        let valor = parseFloat(prompt("Ingrese el porcentaje de IVA (%):"));
+        while (isNaN(valor) || valor < 0) {
+            valor = parseFloat(prompt("Valor inválido. Ingresa el IVA (número positivo):"));
+        }
+        porcentajeIVAGuardado = valor;
+    }
+    return porcentajeIVAGuardado;
+}
+
 
 // 5. Función flecha: calcular subtotal (consumo × tarifa)
 const calcularSubtotal = () => {
@@ -12,12 +66,15 @@ const calcularSubtotal = () => {
     return consumo * tarifa;
 }
 
+
 // 6. Función flecha: calcular monto del IVA
 const calcularIVA = () => {
     const subtotal = calcularSubtotal();
     const porcentaje = obtenerPorcentajeIVA();
     return (subtotal * porcentaje) / 100;
 }
+
+
 // 7. Función flecha: total a pagar
 const calcularTotal = () => {
     const subtotal = calcularSubtotal();
@@ -25,6 +82,8 @@ const calcularTotal = () => {
     const cargo = obtenerCargoFijo();
     return subtotal + iva + cargo;
 }
+
+
 // 8. Función final: mostrar la factura completa
 function mostrarFactura() {
 
