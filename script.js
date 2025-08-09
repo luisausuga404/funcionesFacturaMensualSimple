@@ -5,16 +5,16 @@ let tarifaGuardada = 0;
 let cargoFijoGuardado = 0;
 let porcentajeIVAGuardado = 0;
 
-// 3. Función de expresión: cargo fijo por servicio
-const obtenerCargoFijo = function () {
-    if (cargoFijoGuardado === 0) {
-        let valor = parseFloat(prompt("Ingrese el cargo fijo por servicio:"));
+// 4. Función de expresión: porcentaje de IVA
+const obtenerPorcentajeIVA = function () {
+    if (porcentajeIVAGuardado === 0) {
+        let valor = parseFloat(prompt("Ingrese el porcentaje de IVA (%):"));
         while (isNaN(valor) || valor < 0) {
-            valor = parseFloat(prompt("Valor inválido. Ingresa el cargo fijo:"));
+            valor = parseFloat(prompt("Valor inválido. Ingresa el IVA (número positivo):"));
         }
-        cargoFijoGuardado = valor;
+        porcentajeIVAGuardado = valor;
     }
-    return cargoFijoGuardado;
-}  
-obtenerCargoFijo()
+    return porcentajeIVAGuardado;
+}
+obtenerPorcentajeIVA()
 
