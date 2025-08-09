@@ -5,16 +5,13 @@ let tarifaGuardada = 0;
 let cargoFijoGuardado = 0;
 let porcentajeIVAGuardado = 0;
 
-// 4. Función de expresión: porcentaje de IVA
-const obtenerPorcentajeIVA = function () {
-    if (porcentajeIVAGuardado === 0) {
-        let valor = parseFloat(prompt("Ingrese el porcentaje de IVA (%):"));
-        while (isNaN(valor) || valor < 0) {
-            valor = parseFloat(prompt("Valor inválido. Ingresa el IVA (número positivo):"));
-        }
-        porcentajeIVAGuardado = valor;
-    }
-    return porcentajeIVAGuardado;
+// 5. Función flecha: calcular subtotal (consumo × tarifa)
+const calcularSubtotal = () => {
+    const consumo = obtenerConsumo();
+    const tarifa = obtenerTarifa();
+    return consumo * tarifa;
 }
-obtenerPorcentajeIVA()
+
+
+
 
